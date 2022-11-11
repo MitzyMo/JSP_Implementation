@@ -16,10 +16,11 @@
 	<input type="submit" value="Enviar"><br><br>
 	</form>
 	<hr><br>
+	
 <%-- esto es un formulario: mantenerse en el jsp --%>
-
+<%-- Declara variables --%>
 <%! Persona persona = new Persona();%>
-
+<%-- Recolecta datos y los transforma gestionando peticiones, esto hace parte del control, es un servlet --%>
 <% 
 	String nombre= request.getParameter("nombre");
 		if(nombre != null){
