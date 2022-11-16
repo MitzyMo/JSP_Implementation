@@ -2,11 +2,36 @@
 <%@page import="modelo.Curso"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <title>titulo</title>
 <meta charset="utf-8">
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:hover {background-color: #ddd;}
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+
+
 </head>
 <body>
 <h1> Datos de usuarios </h1>
@@ -15,21 +40,17 @@
     edad: <input type="number" name="edad" value="0"><br>
     <input type="submit" value="Enviar"> <br>
   </form>
-  <jsp:useBean id="mycurso" scope="session" class="modelo.Curso"/>
-   <p> El listado es: </p>
-   <table id="customers">
-    <tr>
-      <th>Nombre</th>
-      <th>Edad</th>
-    </tr>
-   </table>
-   <c:forEach items="${mycurso.listado}" begin="0" end="${mycurso.listado.size()}" var="persona">
-
+  <jsp:useBean id="mycurso" scope="application" class="modelo.Curso"/>
+  
+  <table id="customers">
+<tr>
+<th>Nombre</th>
+<th>Edad</th>
+</tr>
+  <c:forEach items="${mycurso.listado}" begin="0" end="${mycurso.listado.size()}" var="persona">
     <tr><td><c:out value="${persona.nombre}"/> </td>
-
     <td><c:out value="${persona.edad}"/> </td></tr>
-
    </c:forEach>
+  </table>
 </body>
-
 </html> 
