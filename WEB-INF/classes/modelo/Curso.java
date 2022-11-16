@@ -7,6 +7,7 @@ public class Curso {
     public Curso() {
       this.listado = new ArrayList<Persona>();
     }
+    
     @Override
     public String toString(){
       String resultado = "";
