@@ -36,10 +36,11 @@
 <body>
 <h1> Datos de usuarios </h1>
   <form method="get" action="ServletUsuario" >
-    nombre: <input type="text" name="nombre" ><br>
-    edad: <input type="number" name="edad" value="0"><br>
-    <input type="submit" value="Enviar"> <br>
+    nombre: <input type="text" name="nombre" ><br><br>
+    edad: <input type="number" name="edad" value="0"><br><br>
+    <input type="submit" value="Enviar"> <br><br>
   </form>
+  <hr><br><br>
   <jsp:useBean id="mycurso" scope="application" class="modelo.Curso"/>
   
   <table id="customers">
@@ -47,10 +48,29 @@
 <th>Nombre</th>
 <th>Edad</th>
 </tr>
-  <c:forEach items="${mycurso.listado}" begin="0" end="${mycurso.listado.size()}" var="persona">
-    <tr><td><c:out value="${persona.nombre}"/> </td>
-    <td><c:out value="${persona.edad}"/> </td></tr>
-   </c:forEach>
-  </table>
+<c:forEach items="${mycurso.listado}" begin="0" end="${mycurso.listado.size()}" var="persona">
+  <tr><td><c:out value="${persona.nombre}"/> </td>
+  <td><c:out value="${persona.edad}"/> </td></tr>
+ </c:forEach>
+</table>
+
+<%-- 
+<br><br><hr><br><br>
+  <p>Ejercicio Loop</p>
+
+  <table id="customers">
+    <tr>
+    <th>#1</th>
+    <th>#2</th>
+    </tr>
+   <c:forEach var="i" begin="0" end="5"  >
+    <tr><td><c:out value="${i}"/></td>
+    <c:forEach var="i" begin="0" end="5"> 
+      <td><c:out value=" ${i}"/></td></tr>
+    </c:forEach>
+ </c:forEach>
+</table>
+--%>
+
 </body>
 </html> 
